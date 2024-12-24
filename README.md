@@ -45,7 +45,6 @@ Run `npx playwright test` to run all the tests including api and e2e. Keep in mi
 
 ### Design
 
-* Across the QA community a hot topic is about whether use Page Objects pattern is the best option when using Cypress. One of the reasons for such debate is due the fact Cypress provides some built in functionalities such as custom commands which could be used to sctructue a new test pattern called App Actions. For this project it's being used a combination of Page Objects and Cypress best practices. More details can be found in the next section.
 
 ### Detailed folder structure
 
