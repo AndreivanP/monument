@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "e2e": "playwright test --config=playwright.config.ts"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/AndreivanP/monument.git"
