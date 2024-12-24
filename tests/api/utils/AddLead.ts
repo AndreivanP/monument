@@ -1,5 +1,4 @@
-import { generateToken } from './GenerateToken';
-import { faker } from '@faker-js/faker';
+import { generateToken } from './generateToken';
 import getSetUp from '../../../test.config';
 import { request } from '@playwright/test';
 
@@ -28,9 +27,7 @@ export async function AddLead(leadFirstName: string, leadLastName: string, leadE
             lastName: `${leadLastName}`,
             email: `${leadEmail}`
         },
-        facilityUuid: '08b4e0eb-c0da-11ef-b984-fdc8250167fa',
-        unitGroupUuid: '08b507e2-c0da-11ef-b984-fdc8250167fa',
-        unitUuid: '08b507f8-c0da-11ef-b984-fdc8250167fa'
+        facilityUuid: '334bf26e-c1a3-11ef-a881-4782397ca885'
     };
 
     // Create a request context

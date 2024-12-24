@@ -2,22 +2,23 @@
 import { request } from '@playwright/test';
 import getSetUp from '../../../test.config';
 
-// Function to generate a token
+const setUp = getSetUp();
+
 export async function generateToken() {
   // Define the API endpoint
-  const url = 'https://api-ext.stg.monument.io/auth/login';
+  const url = `${setUp.baseURLStgAPI}/auth/login`;
 
   // Define the payload
   const payload = {
-    username: 'darby.hadley+3@monument.io',
-    password: 'oFk2DKk$T'
+    username: `${setUp.username}`,
+    password: `${setUp.password}`,
   };
 
   // Define headers
   const headers = {
     'accept': 'application/json',
     'content-type': 'application/json',
-    'origin': 'https://automatedtests.stg.monument.io'
+    'origin': `${setUp.baseURLStgUI}`
   };
 
   // Create a request context
