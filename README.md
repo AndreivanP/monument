@@ -34,7 +34,7 @@ Demo test automation framework using Playwright
 
 Run `npx playwright test --ui`, to open Playwright UI Runner.
 
-Run `npx playwright test` to run all the tests including api and e2e.
+Run `npx playwright test` to run all the tests including api and e2e. Keep in mind that user should be under the `tests` directory.
 
 ## Test Architecture
 ### Tools
@@ -66,32 +66,32 @@ monument/
 ├── test.config.ts
 
 ```
-- file_folder: tests/: Directory with all related test framework folders and files.
-    - file_folder: api/: Directory with API-related test files and utilities.
-        - file_folder: utils/: Directory with reusable functions for API setup and execution.
-        - page_with_curl: AddLead.ts: Utility for adding leads via API.
-        - page_with_curl: dismissLead.ts: Utility for dismissing leads via API.
-        - page_with_curl: GenerateToken.ts: Utility for generating API tokens.
-    - page_with_curl: AddLead.api.spec.ts: Test file for validating the Add Lead API functionality.
-    - page_with_curl: dismissLead.api.spec.ts: Test file for validating the Dismiss Lead API functionality.
-    - file_folder: e2e/: Directory for End-to-End (E2E) tests.
-        - file_folder: page/: Directory with Page Object Model (POM) files for UI pages.
-            - page_with_curl: AddLeadFormPage.ts: Defines methods and elements for interacting with the Add Lead Form.
-            - page_with_curl: DashboardPage.ts: Defines methods and elements for interacting with the Dashboard page.
-            - page_with_curl: DismissLeadFormPage.ts: Defines methods and elements for interacting with the Dismiss Lead Form.
-            - page_with_curl: DismissLeadPage.ts: Defines methods and elements for interacting with the Dismiss Lead page.
-            - page_with_curl: LoginPage.ts: Defines methods and elements for interacting with the Login page.
-        - file_folder: spec/: Directory containing E2E test specifications.
-            - page_with_curl: AddLead.spec.ts: Test file for verifying the Add Lead functionality in the UI.
-            - page_with_curl: DismissLead.spec.ts: Test file for verifying the Dismiss Lead functionality in the UI.
-        - file_folder: utils/: Directory with utility functions for E2E testing.
-            - page_with_curl: loginViaLocalStorage.ts: Utility function for performing login using local storage for faster and more reliable setup.
-- page_with_curl: .env.example: File with the environment variables needed for tests to work properly. From this file, create a .env file and populate it with the required variables.
-- page_with_curl: playwright.config.ts: Main Playwright configuration file. Contains global settings for test execution, including test directory paths, browser settings, and timeouts.
-- page_with_curl: test.config.ts: Additional configuration file specific to this project. Includes baseURL's and "link" to username and password from env file
-- page_with_curl: .gitignore: File specifying files and directories to be ignored by Git.
-- page_with_curl: package.json: File holding the project's dependencies and scripts.
-- page_with_curl: package-lock.json: Automatically generated file that locks the dependency tree.
+- :file_folder: [tests/](../tests): Directory with all related test framework folders and files.
+    - :file_folder: [api/](tests/api/): Directory with API-related test files and utilities.
+        - :file_folder: [utils/](tests/api/utils/): Directory with reusable functions for API setup and execution.
+        - :page_with_curl: [AddLead.ts](tests/api/utils/AddLead.ts): Utility for adding leads via API.
+        - :page_with_curl: [dismissLead.ts](tests/api/utils/dismissLead.ts): Utility for dismissing leads via API.
+        - :page_with_curl: [GenerateToken.ts](tests/api/utils/GenerateToken.ts): Utility for generating API tokens.
+    - :page_with_curl: AddLead.api.spec.ts: Test file for validating the Add Lead API functionality.
+    - :page_with_curl: dismissLead.api.spec.ts: Test file for validating the Dismiss Lead API functionality.
+    - :file_folder: e2e/: Directory for End-to-End (E2E) tests.
+        - :file_folder: page/: Directory with Page Object Model (POM) files for UI pages.
+            - :page_with_curl: AddLeadFormPage.ts: Defines methods and elements for interacting with the Add Lead Form.
+            - :page_with_curl: DashboardPage.ts: Defines methods and elements for interacting with the Dashboard page.
+            - :page_with_curl: DismissLeadFormPage.ts: Defines methods and elements for interacting with the Dismiss Lead Form.
+            - :page_with_curl: DismissLeadPage.ts: Defines methods and elements for interacting with the Dismiss Lead page.
+            - :page_with_curl: LoginPage.ts: Defines methods and elements for interacting with the Login page.
+        - :file_folder: spec/: Directory containing E2E test specifications.
+            - :page_with_curl: AddLead.spec.ts: Test file for verifying the Add Lead functionality in the UI.
+            - :page_with_curl: DismissLead.spec.ts: Test file for verifying the Dismiss Lead functionality in the UI.
+        - :file_folder: utils/: Directory with utility functions for E2E testing.
+            - :page_with_curl: loginViaLocalStorage.ts: Utility function for performing login using local storage for faster and more reliable setup.
+- :page_with_curl: .env.example: File with the environment variables needed for tests to work properly. From this file, create a .env file and populate it with the required variables.
+- :page_with_curl: playwright.config.ts: Main Playwright configuration file. Contains global settings for test execution, including test directory paths, browser settings, and timeouts.
+- :page_with_curl: test.config.ts: Additional configuration file specific to this project. Includes baseURL's and "link" to username and password from env file
+- :page_with_curl: .gitignore: File specifying files and directories to be ignored by Git.
+- :page_with_curl: package.json: File holding the project's dependencies and scripts.
+- :page_with_curl: package-lock.json: Automatically generated file that locks the dependency tree.
 
 # Future Improvements
 
