@@ -3,7 +3,7 @@ import { faker } from '@faker-js/faker';
 import { LoginPage } from '../page/LoginPage';
 import { DismissLeadPage } from '../page/DismissLeadPage';
 import { DismissLeadFormPage } from '../page/DismissLeadFormPage';
-import { AddLead } from '../../../tests/api/utils/AddLead';
+import { AddLead } from '../../api/utils/addLead';
 
 test.beforeEach(async ({ context, page }) => {
   const loginPage = new LoginPage(page);

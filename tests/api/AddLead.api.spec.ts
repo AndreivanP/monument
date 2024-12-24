@@ -1,13 +1,13 @@
 import { test, expect } from '@playwright/test';
 import { faker } from '@faker-js/faker';
-import { AddLead } from '../api/utils/AddLead';
+import { AddLead } from './utils/addLead';
 
 
 const leadFirstName = faker.person.firstName();
 const leadLastName = faker.person.lastName();
 const leadEmail = faker.internet.email()
 
-test('Add a Lead with an Unit', async ({ }) => {
+test('Add a Lead without an Unit Group', async ({ }) => {
   const leadResponse = await AddLead(leadFirstName, leadLastName, leadEmail);
   console.log('Response Lead Name:', leadResponse.primaryPerson.firstName + ' ' + leadResponse.primaryPerson.lastName);
 

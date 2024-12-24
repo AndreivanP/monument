@@ -1,5 +1,4 @@
 
-5. Create dismiss lead through API
 6. Create Read me file
 
 
