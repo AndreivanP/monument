@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import loginViaLocalStorage from '../helper/loginViaLocalStorage';
+import loginViaLocalStorage from '../utils/loginViaLocalStorage';
 import { faker } from '@faker-js/faker';
 import {LoginPage} from '../page/LoginPage'
 import { DashboardPage } from '../page/DashboardPage';
@@ -15,7 +15,7 @@ const leadFirstName = faker.person.firstName();
 const leadLastName = faker.person.lastName();
 const leadEmail = faker.internet.email()
 
-test('Add a Lead', async ({ page }) => {
+test('Add a Lead without Unit Group', async ({ page }) => {
     const dashboard = new DashboardPage(page);
     const addLeadForm = new AddLeadFormPage(page);
 
@@ -82,21 +82,4 @@ test('Add a Lead with an Unit', async ({ page }) => {
 
     // Assert the Lead creation
     await dashboard.assertLeadCreated(leadFirstName, leadLastName);
-});
-
-
-//await page.waitForTimeout(3000); // Waits for 2 seconds
-
-//Move it to a new File?
-test('Dismiss a Lead', async ({ page }) => {
-    await page.locator('[data-testid="TargetRegularIcon"]').click();
-    await page.locator('[name="fullName"]').fill('Mike Rohan');
-    await page.waitForFunction(() => {
-        const elements = document.querySelectorAll('.MuiTableRow-root.css-fmepe5');
-        return elements.length === 1;
-    });
-    await page.locator('[data-testid="MoreVerticalRegularIcon"]').click();
-    await page.locator('text="Dismiss Lead"').click();
-    await page.locator('text="Dismiss"').click();
-    await expect(page.locator('text="Lead dismissed!"')).toBeVisible();
 });
