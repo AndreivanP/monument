@@ -20,8 +20,8 @@ export class AddLeadFormPage {
     this.emailField = page.locator('[name="person.email"]');
     this.searchField = page.locator('[name="search"]');
     this.selectFacilityButton = page.locator('[id^="select-facility-btn"]');
-    this.selectUnitGroupButton = page.locator('#select-facility-btn-dea6ae56-c010-11ef-9f85-5bd7adcb0f34');
-    this.deselectUnitButton = page.locator('#select-facility-btn-dea6ae5d-c010-11ef-9f85-5bd7adcb0f34');
+    this.selectUnitGroupButton = page.locator('[data-testid="row-0"] >> text="Select"').first();
+    this.deselectUnitButton = page.locator('button:has-text("Selected")').last();
     this.submitButton = page.locator('button[type="submit"]');
   }
 
