@@ -17,6 +17,11 @@ export class DismissLeadPage {
 
   async searchLead(fullName: string) {
     await this.targetRegularIcon.click();
+    await this.page.waitForFunction(() => {
+      const elements = document.querySelectorAll('.MuiTableRow-root.css-fmepe5');
+      return elements.length >= 1;
+    });
+    
     await this.fullNameField.fill(fullName);
     await this.page.waitForFunction(() => {
       const elements = document.querySelectorAll('.MuiTableRow-root.css-fmepe5');
@@ -29,3 +34,7 @@ export class DismissLeadPage {
     await this.dismissLeadButton.click();
   }
 }
+
+
+
+

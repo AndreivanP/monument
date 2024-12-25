@@ -1,27 +1,15 @@
 import { generateToken } from './generateToken';
-import { CreateFacility } from './CreateFacility';
 import getSetUp from '../../../test.config';
 import { request } from '@playwright/test';
-import { faker } from '@faker-js/faker';
-
-const facilityName = faker.location.state();
 
 const setUp = getSetUp();
 
+// Generic function to create leads
 export async function AddLead(leadFirstName: string, leadLastName: string, leadEmail: string) {
     const url = `${setUp.baseURLStgAPI}/leads`;
 
     // Generate bearer token and Set-Cookie header
     const { accessToken, setCookieHeader } = await generateToken();
-
-    // Create a new Facility and get the response
-    const facilityResponse = await CreateFacility(`${facilityName}`);
-
-    // Ensure the facility ID is present
-    const facilityId = facilityResponse?.id || facilityResponse?.facilityId;
-    if (!facilityId) {
-        throw new Error('Facility ID is undefined or not returned from CreateFacility.');
-    }
 
     // Set headers
     const headers = {
@@ -32,20 +20,21 @@ export async function AddLead(leadFirstName: string, leadLastName: string, leadE
         cookie: `${setCookieHeader}`,
     };
 
-    // Define the payload with lead details
+    // Define the payload with default or provided lead details
     const payload = {
         person: {
             firstName: `${leadFirstName}`,
             lastName: `${leadLastName}`,
             email: `${leadEmail}`
         },
-        facilityUuid: facilityId
+        //Houston Facility 10
+        facilityUuid: '5d48bfcc-c26c-11ef-a745-7b1fe2fa2edf'
     };
 
     // Create a request context
     const context = await request.newContext();
 
-    // Send POST request to create the lead
+    // Send POST request to generate the token
     const response = await context.post(url, {
         headers,
         data: payload

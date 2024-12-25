@@ -15,7 +15,7 @@ Demo test automation framework using Playwright
 
     `$ npm install`
 
-3. It's mandatory to create a `.env` file in the root directory containing username and password of an user who is able to sign in on monument app. This file must follow the pattern specified on [.env.example](.env.example)
+3. It's mandatory to create a `.env` file in the root directory containing username and password of an user who is able to sign in on monument app. This file must follow the pattern specified on ".env.example"
 
 ## CLI commands
 ### Test Execution
