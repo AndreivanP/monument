@@ -14,28 +14,28 @@ test.beforeEach(async () => {
 });
 
 test('Dismiss a Not Responsive Lead', async () => {
-  const { status } = await DismissLead(addLeadResponse.leadUuid, '33132f20-c1a3-11ef-a881-4782397ca885');
+  const { status } = await DismissLead(addLeadResponse.leadUuid, '5d1098c0-c26c-11ef-a745-7b1fe2fa2edf');
 
   // Perform validation on the status to make sure Lead is dismissed
   expect(status).toBe(200);
 });
 
 test('Dismiss a Lead due No Longer Needs Storage reason', async ({}) => {
-  const { status } = await DismissLead(addLeadResponse.leadUuid, '33135630-c1a3-11ef-a881-4782397ca885');
+  const { status } = await DismissLead(addLeadResponse.leadUuid, '5d1098c1-c26c-11ef-a745-7b1fe2fa2edf');
 
   // Perform validation on the status to make sure Lead is dismissed
   expect(status).toBe(200);
 });
 
 test('Dismiss a Lead due Rented at Another Facility reason', async ({}) => {
-  const { status } = await DismissLead(addLeadResponse.leadUuid, '33135631-c1a3-11ef-a881-4782397ca885');
+  const { status } = await DismissLead(addLeadResponse.leadUuid, '5d1098c2-c26c-11ef-a745-7b1fe2fa2edf');
 
   // Perform validation on the status to make sure Lead is dismissed
   expect(status).toBe(200);
 });
 
 test('Dismiss a Lead due Other reason', async ({}) => {
-  const { status } = await DismissLead(addLeadResponse.leadUuid,'33135632-c1a3-11ef-a881-4782397ca885');
+  const { status } = await DismissLead(addLeadResponse.leadUuid,'5d1098c3-c26c-11ef-a745-7b1fe2fa2edf');
 
   // Perform validation on the status to make sure Lead is dismissed
   expect(status).toBe(200);
