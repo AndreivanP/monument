@@ -1,4 +1,5 @@
 import { generateToken } from './generateToken';
+import { GetUserFacilities } from './GetUserFacilities';
 import getSetUp from '../../../test.config';
 import { request } from '@playwright/test';
 
@@ -10,6 +11,9 @@ export async function AddLead(leadFirstName: string, leadLastName: string, leadE
 
     // Generate bearer token and Set-Cookie header
     const { accessToken, setCookieHeader } = await generateToken();
+
+    // Get Facility Id
+    const facilityId = await GetUserFacilities('Dallas Facility 2');
 
     // Set headers
     const headers = {
@@ -27,8 +31,7 @@ export async function AddLead(leadFirstName: string, leadLastName: string, leadE
             lastName: `${leadLastName}`,
             email: `${leadEmail}`
         },
-        //Houston Facility 10
-        facilityUuid: '5d48bfcc-c26c-11ef-a745-7b1fe2fa2edf'
+        facilityUuid: `${facilityId}`
     };
 
     // Create a request context
